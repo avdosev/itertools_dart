@@ -10,11 +10,13 @@ Iterable<Tuple$length<$types>> zip$length<$types>(
   ${Iterable.generate(length, (int i) => 'final iter${i + 1} = it${i + 1}.iterator;').join('\n  ')}
   var keep_running = true;
   while (keep_running) {
-    yield Tuple$length<$types>(${Iterable.generate(length, (int i) => 'iter${i + 1}.current').join(', ')});
-    ${Iterable.generate(length, (int i) => 'final move${i + 1} = iter${i + 1}.moveNext();').join('\n  ')}
+    ${Iterable.generate(length, (int i) => 'final move${i + 1} = iter${i + 1}.moveNext();').join('\n    ')}
     final all_true = ${moves.join(' && ')};
     final all_false = ${moves.map((e) => '!' + e).join(' && ')};
     assert(!(all_true || all_false), 'iteration length must be equal');
+    if (all_true) {
+      yield Tuple$length<$types>(${Iterable.generate(length, (int i) => 'iter${i + 1}.current').join(', ')});
+    }
     keep_running = all_true;
   }
 }
