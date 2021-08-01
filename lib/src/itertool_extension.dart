@@ -28,11 +28,11 @@ extension Itertools<T> on Iterable<T> {
     return map<E>((T item) => f(index++, item));
   }
 
-  Iterable<Tuple2<int, T>> enumerate() {
-    return mapIndexed((index, item) => Tuple2(index, item));
+  Iterable<Tuple2<int, T>> enumerate({int start = 0}) {
+    return mapIndexed((index, item) => Tuple2(index + start, item));
   }
 }
 
-Iterable<Tuple2<int, T>> enumerate<T>(Iterable<T> iterable) {
-  return iterable.enumerate();
+Iterable<Tuple2<int, T>> enumerate<T>(Iterable<T> iterable, {int start = 0}) {
+  return iterable.enumerate(start: start);
 }
