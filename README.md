@@ -6,6 +6,7 @@ Provide methods / functions:
 * zip2/zip3/etc
 * chain
 * count
+* enumerate / mapIndexed
 * and other helpers
 
 ## Links
