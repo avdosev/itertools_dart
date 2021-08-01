@@ -1,3 +1,5 @@
+import 'package:tuple/tuple.dart';
+
 import 'zip.dart';
 
 extension Itertools<T> on Iterable<T> {
@@ -16,8 +18,21 @@ extension Itertools<T> on Iterable<T> {
   }
 
   Iterable<T> compress(Iterable<bool> selectors) {
-    return zip2(this, selectors).where((element) => element.item2).map((e) => e.item1);
+    return zip2(this, selectors)
+        .where((element) => element.item2)
+        .map((e) => e.item1);
   }
 
-  
+  Iterable<E> mapIndexed<E>(E Function(int index, T item) f) {
+    var index = 0;
+    return map<E>((T item) => f(index++, item));
+  }
+
+  Iterable<Tuple2<int, T>> enumerate() {
+    return mapIndexed((index, item) => Tuple2(index, item));
+  }
+}
+
+Iterable<Tuple2<int, T>> enumerate<T>(Iterable<T> iterable) {
+  return iterable.enumerate();
 }
