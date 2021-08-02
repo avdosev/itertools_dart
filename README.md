@@ -1,4 +1,4 @@
-# itertools
+# itertools &middot; [![codecov.io](https://codecov.io/github/avdosev/itertools_dart/coverage.svg?branch=master)](https://codecov.io/github/avdosev/itertools_dart?branch=master) &middot; ![build status](https://github.com/avdosev/itertools_dart/workflows/unittests/badge.svg)
 
 Simple package for easy work with Dart iterators just like Python itertools.
 
