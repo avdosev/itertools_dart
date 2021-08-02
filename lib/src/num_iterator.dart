@@ -1,3 +1,5 @@
+import 'dart:math' as Math;
+
 extension ItertoolsNumber<T extends num> on Iterable<T> {
   num sum() {
     return fold<num>(0.0, (prev, cur) => prev + cur);
@@ -14,5 +16,13 @@ extension ItertoolsNumber<T extends num> on Iterable<T> {
     }
 
     return count > 0 ? sum / count : 0;
+  }
+
+  T? min() {
+    return fold(null, (prev, el) => prev == null ? el : Math.min(prev, el));
+  }
+
+  T? max() {
+    return fold(null, (prev, el) => prev == null ? el : Math.max(prev, el));
   }
 }

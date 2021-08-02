@@ -23,4 +23,16 @@ void main() {
         .fold<List<int>>([], (prev, e) => prev..addAll(e));
     expect(zipped, [1, 2, 3, 4, 5, 6, 7, 8]);
   });
+
+  test('max', () {
+    expect([1, 2, 3].max(), 3);
+    expect(<int>[].max(), null);
+    expect([-1, -2, -3].max(), -1);
+  });
+
+  test('min', () {
+    expect([1, 2, 3].min(), 1);
+    expect(<int>[].min(), null);
+    expect([-1, -2, -3].min(), -3);
+  });
 }
