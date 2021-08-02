@@ -13,7 +13,7 @@ Iterable<Tuple$length<$types>> zip$length<$types>(
     ${Iterable.generate(length, (int i) => 'final move${i + 1} = iter${i + 1}.moveNext();').join('\n    ')}
     final all_true = ${moves.join(' && ')};
     final all_false = ${moves.map((e) => '!' + e).join(' && ')};
-    assert(!(all_true || all_false), 'iteration length must be equal');
+    assert((all_true || all_false), 'iteration length must be equal');
     if (all_true) {
       yield Tuple$length<$types>(${Iterable.generate(length, (int i) => 'iter${i + 1}.current').join(', ')});
     }

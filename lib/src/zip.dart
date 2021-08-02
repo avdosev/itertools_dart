@@ -10,7 +10,7 @@ Iterable<Tuple2<T1, T2>> zip2<T1, T2>(
     final move2 = iter2.moveNext();
     final all_true = move1 && move2;
     final all_false = !move1 && !move2;
-    assert(!(all_true || all_false), 'iteration length must be equal');
+    assert((all_true || all_false), 'iteration length must be equal');
     if (all_true) {
       yield Tuple2<T1, T2>(iter1.current, iter2.current);
     }
@@ -30,7 +30,7 @@ Iterable<Tuple3<T1, T2, T3>> zip3<T1, T2, T3>(
     final move3 = iter3.moveNext();
     final all_true = move1 && move2 && move3;
     final all_false = !move1 && !move2 && !move3;
-    assert(!(all_true || all_false), 'iteration length must be equal');
+    assert((all_true || all_false), 'iteration length must be equal');
     if (all_true) {
       yield Tuple3<T1, T2, T3>(iter1.current, iter2.current, iter3.current);
     }
@@ -52,7 +52,7 @@ Iterable<Tuple4<T1, T2, T3, T4>> zip4<T1, T2, T3, T4>(Iterable<T1> it1,
     final move4 = iter4.moveNext();
     final all_true = move1 && move2 && move3 && move4;
     final all_false = !move1 && !move2 && !move3 && !move4;
-    assert(!(all_true || all_false), 'iteration length must be equal');
+    assert((all_true || all_false), 'iteration length must be equal');
     if (all_true) {
       yield Tuple4<T1, T2, T3, T4>(
           iter1.current, iter2.current, iter3.current, iter4.current);
@@ -81,7 +81,7 @@ Iterable<Tuple5<T1, T2, T3, T4, T5>> zip5<T1, T2, T3, T4, T5>(
     final move5 = iter5.moveNext();
     final all_true = move1 && move2 && move3 && move4 && move5;
     final all_false = !move1 && !move2 && !move3 && !move4 && !move5;
-    assert(!(all_true || all_false), 'iteration length must be equal');
+    assert((all_true || all_false), 'iteration length must be equal');
     if (all_true) {
       yield Tuple5<T1, T2, T3, T4, T5>(iter1.current, iter2.current,
           iter3.current, iter4.current, iter5.current);
@@ -113,7 +113,7 @@ Iterable<Tuple6<T1, T2, T3, T4, T5, T6>> zip6<T1, T2, T3, T4, T5, T6>(
     final move6 = iter6.moveNext();
     final all_true = move1 && move2 && move3 && move4 && move5 && move6;
     final all_false = !move1 && !move2 && !move3 && !move4 && !move5 && !move6;
-    assert(!(all_true || all_false), 'iteration length must be equal');
+    assert((all_true || all_false), 'iteration length must be equal');
     if (all_true) {
       yield Tuple6<T1, T2, T3, T4, T5, T6>(iter1.current, iter2.current,
           iter3.current, iter4.current, iter5.current, iter6.current);
@@ -150,7 +150,7 @@ Iterable<Tuple7<T1, T2, T3, T4, T5, T6, T7>> zip7<T1, T2, T3, T4, T5, T6, T7>(
         move1 && move2 && move3 && move4 && move5 && move6 && move7;
     final all_false =
         !move1 && !move2 && !move3 && !move4 && !move5 && !move6 && !move7;
-    assert(!(all_true || all_false), 'iteration length must be equal');
+    assert((all_true || all_false), 'iteration length must be equal');
     if (all_true) {
       yield Tuple7<T1, T2, T3, T4, T5, T6, T7>(
           iter1.current,
