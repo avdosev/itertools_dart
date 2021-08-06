@@ -1,10 +1,11 @@
-class NumRange extends Iterable<int> {
+/// Provide arithmetic progression
+class IntRange extends Iterable<int> {
   @override
   final int first;
   final int _last;
   final int step;
 
-  NumRange({required this.first, required int last, required this.step})
+  IntRange({required this.first, required int last, required this.step})
       : assert(step != 0, 'step can`t be zero'),
         _last = last;
 
@@ -23,7 +24,7 @@ class NumRange extends Iterable<int> {
   @override
   Iterable<int> skip(int count) {
     assert(count > 0, 'count must be most zero');
-    return NumRange(first: first + step * count, last: _last, step: step);
+    return IntRange(first: first + step * count, last: _last, step: step);
   }
 
   /// Returns [Iterable], which provides the inverse of the arithmetic progression.
@@ -33,20 +34,50 @@ class NumRange extends Iterable<int> {
   /// range(0, 10, 3).reversed().toList() // [9, 6, 3, 0]
   /// ```
   Iterable<int> get reversed {
-    return NumRange(first: last, last: first - step, step: -step);
+    return IntRange(first: last, last: first - step, step: -step);
   }
 
   @override
   Iterator<int> get iterator => _NumIterator(first, _last, step);
 }
 
-NumRange range({int? first, required int last, int step = 1}) {
-  return NumRange(first: first ?? 0, last: last, step: step);
+/// Return iterable [IntRange]
+///
+/// provide integers from [first] to non-inclusive [last] with [step]
+///
+/// see more compact variant in [ItertoolsRange]
+///
+/// ```dart
+///
+/// range(last: 5) // output: [0, 1, 2, 3, 4]
+/// range(first: 2, last: 5) // output: [2, 3, 4]
+/// range(first: -10, last: 10, step: 5) // output: [-10, -5, 0, -5]
+/// range(first: 1, last: -3) // output: []
+/// range(first: 1, last: -3, step: -1) // output: [1, 0, -1, -2]
+///
+/// ```
+IntRange range({int? first, required int last, int step = 1}) {
+  return IntRange(first: first ?? 0, last: last, step: step);
 }
 
 extension ItertoolsRange on int {
-  NumRange to(int to, {int step = 1}) {
-    return NumRange(first: this, last: to, step: step);
+  /// Return iterable [IntRange]
+  ///
+  /// provide integers from [first] to non-inclusive [last] with [step]
+  ///
+  /// see less compact variant [range]
+  ///
+  /// ```dart
+  ///
+  /// 0.to(5) // output: [0, 1, 2, 3, 4]
+  /// 2.to(5) // output: [2, 3, 4]
+  /// -10.to(10, step: 5) // output: [-10, -5, 0, -5]
+  /// 1.to(-3) // output: []
+  /// 1.to(-3, step: -1) // output: [1, 0, -1, -2]
+  ///
+  /// ```
+  IntRange to(int to, {int step = 1}) {
+    return IntRange(first: this, last: to, step: step);
   }
 }
 

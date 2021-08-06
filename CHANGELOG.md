@@ -13,4 +13,7 @@ Support:
 
 Added: 
 - range
+
 - documentation
+Fixed:
+- mapIndexed/enumerate
