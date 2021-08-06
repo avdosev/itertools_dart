@@ -8,3 +8,9 @@ Support:
 * count
 * enumerate / mapIndexed
 * and other helpers
+
+## 0.1.1
+
+Added: 
+- range
+- documentation
