@@ -30,6 +30,11 @@ void main() {
 
   print(range(first: 1, last: 10, step: 3).reversed.toList());
   // output: [7, 4, 1]
+
+  // or more compact
+
+  print(1.to(10, step: 3).reversed.toList());
+  // output: [7, 4, 1]
 }
 ```
 

@@ -44,6 +44,12 @@ NumRange range({int? first, required int last, int step = 1}) {
   return NumRange(first: first ?? 0, last: last, step: step);
 }
 
+extension ItertoolsRange on int {
+  NumRange to(int to, {int step = 1}) {
+    return NumRange(first: this, last: to, step: step);
+  }
+}
+
 class _NumIterator extends Iterator<int> {
   final int _first;
   int? _current;
