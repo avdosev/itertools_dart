@@ -37,4 +37,22 @@ void main() {
     final arr = range(first: 0, last: -5, step: 2).toList();
     expect(arr, []);
   });
+
+  test('range skip', () {
+    final arr = range(first: 0, last: 5, step: 2).skip(5).toList();
+    expect(arr, []);
+  });
+
+  test('range reversed', () {
+    final ranges = [
+      range(first: 0, last: 10),
+      range(first: 0, last: 10, step: 3),
+      range(first: 1, last: 10, step: 3),
+      range(first: 10, last: 0, step: -3),
+      range(first: 10, last: -10, step: -3),
+    ];
+    for (final r in ranges) {
+      expect(r.reversed, r.toList().reversed);
+    }
+  });
 }

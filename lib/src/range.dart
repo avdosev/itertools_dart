@@ -1,18 +1,43 @@
 class NumRange extends Iterable<int> {
   @override
   final int first;
-  @override
-  final int last;
+  final int _last;
   final int step;
 
-  NumRange({required this.first, required this.last, required this.step})
-      : assert(step != 0, 'step can`t be zero');
+  NumRange({required this.first, required int last, required this.step})
+      : assert(step != 0, 'step can`t be zero'),
+        _last = last;
 
   @override
-  int get length => (last - first).abs() ~/ step;
+  int get length {
+    final len = (_last - first).abs() ~/ step.abs();
+    final len2 = len - (first + len * step == _last ? 1 : 0);
+    return len2 > 0 ? len2 : 0;
+  }
 
   @override
-  Iterator<int> get iterator => _NumIterator(first, last, step);
+  int get last {
+    return first + length * step;
+  }
+
+  @override
+  Iterable<int> skip(int count) {
+    assert(count > 0, 'count must be most zero');
+    return NumRange(first: first + step * count, last: _last, step: step);
+  }
+
+  /// Returns [Iterable], which provides the inverse of the arithmetic progression.
+  ///
+  /// Not inverse first and last
+  /// ```dart
+  /// range(0, 10, 3).reversed().toList() // [9, 6, 3, 0]
+  /// ```
+  Iterable<int> get reversed {
+    return NumRange(first: last, last: first - step, step: -step);
+  }
+
+  @override
+  Iterator<int> get iterator => _NumIterator(first, _last, step);
 }
 
 NumRange range({int? first, required int last, int step = 1}) {
@@ -20,10 +45,10 @@ NumRange range({int? first, required int last, int step = 1}) {
 }
 
 class _NumIterator extends Iterator<int> {
-  int _first;
+  final int _first;
   int? _current;
-  int _step;
-  int _last;
+  final int _step;
+  final int _last;
 
   _NumIterator(this._first, this._last, this._step);
 

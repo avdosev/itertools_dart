@@ -5,4 +5,7 @@ void main() {
       .map((e) => e.item1 + e.item2)
       .join());
   // output: Hi, all!
+
+  print(range(first: 1, last: 10, step: 3).reversed.toList());
+  // output: [7, 4, 1]
 }
