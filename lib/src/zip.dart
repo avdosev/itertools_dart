@@ -1,4 +1,4 @@
-import 'package:tuple/tuple.dart';
+import 'package:tuple_dart/tuple.dart';
 
 Iterable<Tuple2<T1, T2>> zip2<T1, T2>(
     Iterable<T1> it1, Iterable<T2> it2) sync* {

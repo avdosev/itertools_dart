@@ -17,3 +17,8 @@ Added:
 - documentation
 Fixed:
 - mapIndexed/enumerate
+
+## 0.1.2
+
+- Move from `tuple` package to `tuple_dart` package
+- Not dependency on `quiver`

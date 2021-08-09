@@ -1,4 +1,4 @@
-import 'package:tuple/tuple.dart';
+import 'package:tuple_dart/tuple.dart';
 
 import 'zip.dart';
 
@@ -64,7 +64,6 @@ extension Itertools<T> on Iterable<T> {
 extension ItertoolsNullable<T> on Iterable<T?> {
   Iterable<T> get notNull => where((element) => element != null).whereType<T>();
 }
-
 
 Iterable<Tuple2<int, T>> enumerate<T>(Iterable<T> iterable, {int start = 0}) {
   return iterable.enumerate(start: start);
