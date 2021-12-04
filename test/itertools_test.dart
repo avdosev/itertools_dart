@@ -35,4 +35,17 @@ void main() {
     expect(<int>[].min(), null);
     expect([-1, -2, -3].min(), -3);
   });
+
+  test('groupby', () {
+    final groupResult = groupby(
+      [1, 2, 3, 1, 3, 2, 3, 4],
+      key: (int item) => item,
+    );
+    expect(groupResult, {
+      1: [1, 1],
+      2: [2, 2],
+      3: [3, 3, 3],
+      4: [4],
+    });
+  });
 }
