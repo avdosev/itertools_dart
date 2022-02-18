@@ -1,5 +1,6 @@
 import 'package:tuple_dart/tuple.dart';
 
+import 'chain.dart';
 import 'zip.dart';
 
 extension Itertools<T> on Iterable<T> {
@@ -65,6 +66,14 @@ extension Itertools<T> on Iterable<T> {
 
   /// Returns the [last] or null when the collection is empty
   T? get lastOrNull => isEmpty ? null : last;
+
+  /// concat this and [iterable]
+  /// ```
+  /// print([1, 2].concat([3, 4]).toList()) // [1, 2, 3, 4]
+  /// ```
+  Iterable<T> concat(Iterable<T> iterable) {
+    return chain(this, iterable);
+  }
 }
 
 extension ItertoolsNullable<T> on Iterable<T?> {

@@ -35,6 +35,9 @@ void main() {
 
   print(1.to(10, step: 3).reversed.toList());
   // output: [7, 4, 1]
+
+  print(chain(1.to(4), [4, 5], 1.to(4)).toList());
+  // output: [1, 2, 3,  4, 5,  1, 2, 3]
 }
 ```
 

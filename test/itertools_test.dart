@@ -36,6 +36,12 @@ void main() {
     expect([-1, -2, -3].min(), -3);
   });
 
+  test('concat', () {
+    expect([1, 2].concat([3, 4]), [1, 2, 3, 4]);
+    expect([1].concat([]), [1]);
+    expect([].concat([1]), [1]);
+  });
+
   test('groupby', () {
     final groupResult = groupby(
       [1, 2, 3, 1, 3, 2, 3, 4],

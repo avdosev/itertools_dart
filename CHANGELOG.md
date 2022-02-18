@@ -1,3 +1,8 @@
+## 0.2.0
+
+- add chain
+- add concat (some chain, but extension)
+
 ## 0.1.4
 
 - add firstOrNull
