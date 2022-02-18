@@ -59,6 +59,12 @@ extension Itertools<T> on Iterable<T> {
     list.sort(compare);
     return list;
   }
+
+  /// Returns the [first] or null when the collection is empty
+  T? get firstOrNull => isEmpty ? null : first;
+
+  /// Returns the [last] or null when the collection is empty
+  T? get lastOrNull => isEmpty ? null : last;
 }
 
 extension ItertoolsNullable<T> on Iterable<T?> {

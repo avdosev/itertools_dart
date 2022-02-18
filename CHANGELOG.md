@@ -1,3 +1,8 @@
+## 0.1.4
+
+- add firstOrNull
+- add lastOrNull
+
 ## 0.1.3
 
 - add groupby
