@@ -1,3 +1,7 @@
+## 0.2.1
+
+- add starmap
+
 ## 0.2.0
 
 - add chain

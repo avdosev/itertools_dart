@@ -8,3 +8,4 @@ export 'src/repeat.dart';
 export 'src/chain.dart';
 export 'src/range.dart';
 export 'src/groupby.dart';
+export 'src/starmap.dart';

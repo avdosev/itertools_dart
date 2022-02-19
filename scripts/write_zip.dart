@@ -26,7 +26,7 @@ Iterable<Tuple$length<$types>> zip$length<$types>(
 void main(List<String> args) async {
   final f = File('lib/src/zip.dart');
   final file = f.openWrite();
-  file.write("import 'package:tuple/tuple.dart';\n");
+  file.write("import 'package:tuple_dart/tuple.dart';\n");
   for (int i = 2; i <= 7; i++) {
     file.write('\n');
     file.write(makeZipCode(i));
