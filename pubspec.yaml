@@ -1,6 +1,6 @@
 name: itertools
 description: Package for advanced simple and easy work with Dart iterators
-version: 0.2.1
+version: 0.2.2
 homepage: https://github.com/avdosev
 repository: https://github.com/avdosev/itertools_dart
 

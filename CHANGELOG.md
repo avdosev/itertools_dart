@@ -1,3 +1,7 @@
+## 0.2.2
+
+- add mapList to Itertool extension
+
 ## 0.2.1
 
 - add starmap
