@@ -74,6 +74,13 @@ extension Itertools<T> on Iterable<T> {
   Iterable<T> concat(Iterable<T> iterable) {
     return chain(this, iterable);
   }
+
+  /// The elements of this iterable are modified by toElement and converted iterable to list
+  /// 
+  /// most convenient when used with build Flutter widgets
+  List<E> mapList<E>(E Function(T item) toElement, {bool growable = true}) {
+    return map(toElement).toList(growable: growable);
+  }
 }
 
 extension ItertoolsNullable<T> on Iterable<T?> {
