@@ -55,10 +55,27 @@ extension Itertools<T> on Iterable<T> {
 
   /// Returns a new list with all elements sorted according to the order
   /// specified by the [compare] function.
-  List<T> sortedBy(int Function(T a, T b) compare, {bool growable = true}) {
+  List<T> sortedBy(Comparator<T> compare, {bool growable = true}) {
     final list = toList(growable: growable);
     list.sort(compare);
     return list;
+  }
+
+  /// return max by [comparable]
+  T maxBy(Comparator<T> comparable, {T Function()? orElse}) {
+    if (isEmpty) return (orElse ?? _throwNotFound)();
+
+    return reduce(
+      (value, element) => comparable(value, element) > 0 ? value : element,
+    );
+  }
+
+  /// return min by [comparable]
+  T minBy(Comparator<T> comparable, {T Function()? orElse}) {
+    if (isEmpty) return (orElse ?? _throwNotFound)();
+    return reduce(
+      (value, element) => comparable(value, element) < 0 ? value : element,
+    );
   }
 
   /// Returns the [first] or null when the collection is empty
@@ -76,10 +93,14 @@ extension Itertools<T> on Iterable<T> {
   }
 
   /// The elements of this iterable are modified by toElement and converted iterable to list
-  /// 
+  ///
   /// most convenient when used with build Flutter widgets
   List<E> mapList<E>(E Function(T item) toElement, {bool growable = true}) {
     return map(toElement).toList(growable: growable);
+  }
+
+  E _throwNotFound<E>() {
+    throw StateError("No element");
   }
 }
 

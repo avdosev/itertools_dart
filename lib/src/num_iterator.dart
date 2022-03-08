@@ -11,7 +11,7 @@ extension ItertoolsNumber<T extends num> on Iterable<T> {
   /// Uses a length getter.
   ///
   /// Counting all elements may involve iterating through all elements and can therefore be slow.
-  double average() {
+  num average() {
     final count = length;
     return map((el) => el / count).sum().toDouble();
   }

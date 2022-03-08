@@ -54,4 +54,38 @@ void main() {
       4: [4],
     });
   });
+
+  group('minBy/maxBy', () {
+    test('empty', () {
+      final empty = [];
+      expect(
+        () => empty.maxBy((a, b) => 1),
+        throwsA(isA<StateError>()),
+      );
+      expect(
+        () => empty.minBy((a, b) => 1),
+        throwsA(isA<StateError>()),
+      );
+    });
+    test('full', () {
+      final first = [1, 2, 3, 4, 5];
+      expect(
+        first.maxBy(Comparable.compare),
+        5,
+      );
+      expect(
+        first.minBy(Comparable.compare),
+        1,
+      );
+      final second = [1, 2, 3, 4, 5].reversed;
+      expect(
+        second.maxBy(Comparable.compare),
+        5,
+      );
+      expect(
+        second.minBy(Comparable.compare),
+        1,
+      );
+    });
+  });
 }
