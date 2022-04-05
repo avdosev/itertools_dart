@@ -100,7 +100,7 @@ extension Itertools<T> on Iterable<T> {
   }
 
   E _throwNotFound<E>() {
-    throw StateError("No element");
+    throw StateError('No element');
   }
 }
 

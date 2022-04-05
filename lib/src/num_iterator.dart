@@ -1,4 +1,4 @@
-import 'dart:math' as Math;
+import 'dart:math' as math;
 
 extension ItertoolsNumber<T extends num> on Iterable<T> {
   /// Sum of iterated elements
@@ -18,11 +18,11 @@ extension ItertoolsNumber<T extends num> on Iterable<T> {
 
   /// Math min of iterated elements
   T? min() {
-    return fold(null, (prev, el) => prev == null ? el : Math.min(prev, el));
+    return fold(null, (prev, el) => prev == null ? el : math.min(prev, el));
   }
 
   /// Math max of iterated elements
   T? max() {
-    return fold(null, (prev, el) => prev == null ? el : Math.max(prev, el));
+    return fold(null, (prev, el) => prev == null ? el : math.max(prev, el));
   }
 }

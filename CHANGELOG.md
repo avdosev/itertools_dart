@@ -1,5 +1,9 @@
 ## 0.2.3
 
+- fix tuple import (allow tuple >=1.0.0 <2.0.0)
+
+## 0.2.3
+
 - add minBy and maxBy to Itertool extension
 
 ## 0.2.2

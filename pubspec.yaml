@@ -1,6 +1,6 @@
 name: itertools
 description: Package for advanced simple and easy work with Dart iterators
-version: 0.2.3
+version: 0.2.4
 homepage: https://github.com/avdosev
 repository: https://github.com/avdosev/itertools_dart
 
@@ -8,7 +8,7 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  tuple_dart: ^1.0.0
+  tuple_dart: '>=1.0.0 < 2.0.0'
 
 dev_dependencies:
   pedantic: ^1.10.0
