@@ -1,4 +1,4 @@
-## 0.2.3
+## 0.2.4
 
 - fix tuple import (allow tuple >=1.0.0 <2.0.0)
 
